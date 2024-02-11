@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.coursepr_vorobyevp_pr_21102"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.coursepr_vorobyevp_pr_21102"

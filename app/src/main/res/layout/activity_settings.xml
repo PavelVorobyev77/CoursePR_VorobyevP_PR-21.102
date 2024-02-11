@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="79dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="308dp"
+        android:layout_height="75dp"
+        android:padding="16dp"
+        android:text="Настройки"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-1dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutDarkTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_dark_theme"/>
+
+        <TextView
+            android:layout_width="186dp"
+            android:layout_height="49dp"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:text="Тёмная тема" />
+
+        <Switch
+            android:id="@+id/switchDarkTheme"
+            android:layout_width="78dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutFileLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layoutDarkTheme"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_directory"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:backgroundTint="#FFFFFF"
+            android:textSize="22sp"
+            android:text="Расположение файлов" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutRecordingFormat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layoutFileLocation"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_format_record"/>
+
+        <TextView
+            android:id="@+id/tvFormat"
+            android:layout_width="179dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Формат файлов"
+            android:textSize="22sp" />
+
+        <Spinner
+            android:id="@+id/spinnerRecordingFormat"
+            android:layout_width="100dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvFormat"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
