@@ -25,11 +25,15 @@
                 android:text="Все записи"
                 android:textSize="24sp" />
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnSettings"
                 android:layout_width="40dp"
                 android:layout_height="42dp"
+                android:background="?android:attr/selectableItemBackground"
                 android:padding="8dp"
-                android:src="@drawable/ic_settings" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_settings"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -75,10 +79,14 @@
             android:gravity="center"
             android:padding="16dp">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btnRecord"
                 android:layout_width="41dp"
                 android:layout_height="39dp"
-                android:src="@drawable/ic_record" />
+                android:background="?android:attr/selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_record"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
     </LinearLayout>

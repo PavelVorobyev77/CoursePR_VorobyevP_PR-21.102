@@ -15,26 +15,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="716dp"
+            android:layout_height="626dp"
             android:orientation="vertical">
 
-            <TextView
+            <Chronometer
                 android:id="@+id/tvRecordingTimer"
                 android:layout_width="wrap_content"
                 android:layout_height="115dp"
-                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="30dp"
                 android:padding="16dp"
-                android:text="00:00:00"
+                android:text="00:00"
                 android:textSize="35sp" />
 
-            <ImageView
-                android:id="@+id/ivSoundWave"
-                android:layout_width="match_parent"
-                android:layout_height="255dp"
-                android:padding="16dp"
-                android:scaleType="fitXY"
-                android:src="" />
+            <com.example.coursepr_vorobyevp_pr_21102.WaveformView
+            android:id="@+id/waveformView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -57,7 +55,7 @@
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
-                android:id="@+id/btnStop"
+                android:id="@+id/btnRecord"
                 android:layout_width="53dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="20dp"
