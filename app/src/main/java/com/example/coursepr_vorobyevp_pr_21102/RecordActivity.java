@@ -38,7 +38,6 @@ public class RecordActivity extends AppCompatActivity {
     private boolean isRecording = false;
     private boolean isPaused = false;
 
-    private Visualizer visualizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,28 +141,8 @@ public class RecordActivity extends AppCompatActivity {
 
             isRecording = true;
 
-            // Создаем AudioRecord для получения audioSessionId
-            AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, 44100,
-                    AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, 4096);
-            audioRecord.startRecording();
-            int audioSessionId = audioRecord.getAudioSessionId();
-            audioRecord.stop();
-            audioRecord.release();
+            Toast.makeText(this, "Запись начата", Toast.LENGTH_SHORT).show();
 
-            visualizer = new Visualizer(audioSessionId);
-            visualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
-            visualizer.setDataCaptureListener(new Visualizer.OnDataCaptureListener() {
-                @Override
-                public void onWaveFormDataCapture(Visualizer visualizer, byte[] waveform, int samplingRate) {
-                    updateVisualizer(waveform);
-                }
-
-                @Override
-                public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
-                    // Не используется
-                }
-            }, Visualizer.getMaxCaptureRate() / 2, true, false);
-            visualizer.setEnabled(true);
         } catch (IOException e) {
             // Обработка исключения
             Toast.makeText(this, "Ошибка при записи аудио", Toast.LENGTH_SHORT).show();
@@ -189,15 +168,9 @@ public class RecordActivity extends AppCompatActivity {
             isRecording = false;
             isPaused = false;
 
-            // Отключаем и освобождаем Visualizer
-            if (visualizer != null) {
-                visualizer.setEnabled(false);
-                visualizer.release();
-                visualizer = null;
-            }
+            Toast.makeText(this, "Запись завершена", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void pauseRecording() {
         if (mediaRecorder != null) {
@@ -206,6 +179,8 @@ public class RecordActivity extends AppCompatActivity {
             chronometer.stop();
             btnPause.setImageResource(R.drawable.ic_play);
             isPaused = true;
+
+            Toast.makeText(this, "Запись на паузе", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -216,6 +191,8 @@ public class RecordActivity extends AppCompatActivity {
             chronometer.start();
             btnPause.setImageResource(R.drawable.ic_pause);
             isPaused = false;
+
+            Toast.makeText(this, "Запись возобновлена", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -231,9 +208,5 @@ public class RecordActivity extends AppCompatActivity {
                 Toast.makeText(this, "Не удалось удалить запись", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private void updateVisualizer(byte[] waveform) {
-        waveformView.setWaveform(waveform); // Обновляем визуализацию на экране
     }
 }
